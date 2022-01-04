@@ -1,0 +1,15 @@
+// n ==> Size of circle
+// m ==> Number of items
+// k ==> Initial position
+
+
+int distribute(int n, int m, int k )
+{
+ int ans=(m+k-1)%n;
+ if(ans==0)
+ {
+  return n;
+ }
+return ans;
+
+}
