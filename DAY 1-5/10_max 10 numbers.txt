@@ -1,0 +1,5 @@
+Find max 10 numbers in a list having 10M entries.
+
+
+We can push all elements in maxheap of size 10 
+after traversing we will get 10 largest elements in heap;
