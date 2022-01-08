@@ -1,0 +1,28 @@
+  deque<int> q;
+        vector <int> v(n-k+1);
+        int i=0;
+        for(;i<k;i++)
+        {   while(!q.empty() && arr[q.back()]<=arr[i])
+        {
+            q.pop_back();
+        }
+            q.push_back(i);
+        }
+        for(;i<n;i++)
+        {
+            v[i-k]=arr[q.front()];
+            while(!q.empty() && q.front()<=i-k)
+            {
+                q.pop_front();
+            }
+                
+                while(!q.empty() && arr[q.back()]<=arr[i])
+            {
+                q.pop_back();
+            }
+            q.push_back(i);
+                
+        }
+        v[v.size()-1]=arr[q.front()];
+        
+        return v;
