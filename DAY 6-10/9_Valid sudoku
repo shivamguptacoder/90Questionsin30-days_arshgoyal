@@ -1,0 +1,21 @@
+ int isValid(vector<vector<int>> mat){
+        // code here
+        unordered_set<int> rows[9];
+        unordered_set<int> cols[9];
+        unordered_set<int> box[9];
+        for(int i=0;i<mat.size();i++)
+        {
+            for(int j=0;j<mat[0].size();j++)
+            {   int val=mat[i][j];
+                if(mat[i][j]==0)continue;
+                int spos= (i/3)*3+(j/3);
+                if(rows[i].count(val) || cols[j].count(val) || box[spos].count(val))
+                    return 0;
+                rows[i].insert(val);
+                cols[j].insert(val);
+                box[spos].insert(val);
+                
+            }
+        }
+        return 1;
+    }
