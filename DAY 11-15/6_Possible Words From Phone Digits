@@ -1,0 +1,33 @@
+  map<int,string> mp;
+    vector<string> v;
+    void recursion(int a[], int N,string s,int idx)
+    {
+        if(idx==N)
+        {
+            v.push_back(s);
+            return;
+        }
+        for(int j=0;j<mp[a[idx]].size();j++)
+        {
+            recursion(a,N,s+mp[a[idx]][j],idx+1);
+        }
+   
+    }
+    vector<string> possibleWords(int a[], int N)
+    {
+        //Your code here
+        mp[2]="abc";
+        mp[3]="def";
+        mp[4]="ghi";
+        mp[5]="jkl";
+        mp[6]="mno";
+        mp[7]="pqrs";
+        mp[8]="tuv";
+        mp[9]="wxyz";
+        
+        recursion(a,N,"",0);
+    
+        return v;
+        
+        
+    }
