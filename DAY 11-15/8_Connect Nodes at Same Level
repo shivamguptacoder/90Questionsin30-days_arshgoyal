@@ -1,0 +1,24 @@
+ void connect(Node *root)
+    {
+       // Your Code Here
+       queue<Node*> q; 
+       q.push(root);
+       q.push(NULL);
+       
+       while(!q.empty()) {
+           struct Node* t1 = q.front(); 
+           q.pop();
+           if(t1 == NULL) {
+               if(!q.empty()) q.push(NULL);
+           }
+           else {
+                t1->nextRight = q.front(); 
+                if(t1->left) {
+                       q.push(t1->left);
+                 }
+                if(t1->right) {
+                       q.push(t1->right);
+                }
+           }
+        }
+    }    
