@@ -1,0 +1,21 @@
+  vector<int> subarraySum(int arr[], int n, long long s)
+    {
+        // Your code here
+       if(s == 0){ // handle sum = 0
+            for(int i=0; i<n; i++)
+                if(arr[i] == 0)
+                    return vector<int>{i,i};
+            return vector<int>{-1};
+        }
+        int l = 0, r=0;
+        int curr_sum = 0;
+        while(l<n && r<=n && l<=r){
+            if(curr_sum == s)
+                return vector<int>{l+1,r};
+            if(curr_sum < s)
+                curr_sum += arr[r++];
+            else
+                curr_sum -= arr[l++];
+        }
+        return vector<int>{-1};
+    }
